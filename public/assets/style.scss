@@ -9,7 +9,7 @@ body,
   height: 100%;
 }
 
-@import "@/components/style.scss";
+@import "~@/components/style.scss";
 
 .app-container {
   padding: 50px;
@@ -29,6 +29,18 @@ body,
 
     &:focus {
       outline: none;
+    }
+  }
+
+  .react-isolate-event-container {
+    color: #000;
+    border: 4px dashed #ccc;
+    padding: 20px;
+    user-select: none;
+    margin-bottom: 20px;
+    &:hover {
+      border-color: #ddd;
+      background: #f3f3f3;
     }
   }
 }
