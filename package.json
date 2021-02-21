@@ -20,17 +20,11 @@
     "url": "git+https://github.com/afeiship/react-isolate-event-container.git"
   },
   "keywords": [
-    "boilerplate",
     "react",
-    "component",
-    "cra",
-    "template",
-    "webpack",
-    "sass",
-    "scss",
-    "docs",
-    "service-worker",
-    "sw"
+    "isolate",
+    "event",
+    "prevent",
+    "propagation"
   ],
   "author": "afei",
   "license": "MIT",

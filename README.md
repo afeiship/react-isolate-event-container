@@ -15,8 +15,7 @@ npm install -S @jswork/react-isolate-event-container
 | Name      | Type   | Required | Default | Description                           |
 | --------- | ------ | -------- | ------- | ------------------------------------- |
 | className | string | false    | -       | The extended className for component. |
-| value     | object | false    | null    | The changed value.                    |
-| onChange  | func   | false    | noop    | The change handler.                   |
+| items     | array  | false    | []      | React events list.                    |
 
 
 ## usage
@@ -39,13 +38,36 @@ npm install -S @jswork/react-isolate-event-container
   import './assets/style.scss';
 
   class App extends React.Component {
+    handleClick = (e) => {
+      console.log('inner click1');
+    };
+
+    handleOutterClick = (e) => {
+      console.log('outter click2');
+    };
+
+    handleCntClick = (e) => {
+      console.log('container click3');
+    };
+
     render() {
       return (
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-isolate-event-container">
-          <ReactIsolateEventContainer className="mb-5 has-text-white" />
-          <button className="button is-primary is-fullwidth">Start~</button>
+          <div className="isolated" onClick={this.handleOutterClick}>
+            <ReactIsolateEventContainer items={['onClick']}>
+              <button className="button is-primary" onClick={this.handleClick}>
+                I am isolated
+              </button>
+            </ReactIsolateEventContainer>
+          </div>
+
+          <div className="no-isolated" onClick={this.handleOutterClick}>
+            <button className="button is-info" onClick={this.handleClick}>
+              I am not isolated
+            </button>
+          </div>
         </ReactDemokit>
       );
     }
